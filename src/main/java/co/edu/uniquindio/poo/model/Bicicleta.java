@@ -7,7 +7,7 @@ public class Bicicleta {
     private String anio;
     private TipoBicicleta tipo;
     private Cliente cliente;
-    private taller taller;
+    private Taller taller;
 
     /**
      * Constructor con los atributos de:
@@ -20,7 +20,7 @@ public class Bicicleta {
      * @param taller asociado a la bicicleta
      */
     public Bicicleta(String color, String marca, String noSerial, String anio, TipoBicicleta tipo,
-                     Cliente cliente, taller taller) {
+                     Cliente cliente, Taller taller) {
         this.color = color;
         this.marca = marca;
         this.noSerial = noSerial;
@@ -123,7 +123,7 @@ public class Bicicleta {
     /**
      * @return taller asociado a la bicicletq
      */
-    public taller getTaller() {
+    public Taller getTaller() {
         return taller;
     }
 
@@ -131,7 +131,7 @@ public class Bicicleta {
      * Metodo para actualizar el taller asociado a la bicicleta
      * @param taller
      */
-    public void setTaller(taller taller) {
+    public void setTaller(Taller taller) {
         this.taller = taller;
     }
 }
