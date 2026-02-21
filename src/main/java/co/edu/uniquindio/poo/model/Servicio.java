@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Servicio {
 private LocalDate fecha;
@@ -11,7 +12,7 @@ private int costoTotal;
 private Taller ownedByTaller;
 private Mecanico mecanico;
 private Cliente cliente;
-private DetalleRepuesto listaDetalleRepuesto;
+private List<DetalleRepuesto> listaDetalleRepuesto;
 
     /**
      * Constructor con los atributos
@@ -26,7 +27,7 @@ private DetalleRepuesto listaDetalleRepuesto;
      * @param listaDetalleRepuesto utilizados en el servicio
      */
     public Servicio(LocalDate fecha, String motivo, String diagnostico, int trabajosRealizados, int costoTotal,
-                    Taller ownedByTaller, Mecanico mecanico, Cliente cliente, DetalleRepuesto listaDetalleRepuesto) {
+                    Taller ownedByTaller, Mecanico mecanico, Cliente cliente, List<DetalleRepuesto> listaDetalleRepuesto) {
         this.fecha = fecha;
         this.motivo = motivo;
         this.diagnostico = diagnostico;
@@ -161,7 +162,7 @@ private DetalleRepuesto listaDetalleRepuesto;
     /**
      * @return la lista detallada de los repuestos empleados durante el servicio
      */
-    public DetalleRepuesto getListaDetalleRepuesto() {
+    public List<DetalleRepuesto> getListaDetalleRepuesto() {
         return listaDetalleRepuesto;
     }
 
@@ -169,7 +170,7 @@ private DetalleRepuesto listaDetalleRepuesto;
      * Metodo para actualizar la lista detallada de los repuestos empleados durante el servicio
      * @param listaDetalleRepuesto
      */
-    public void setListaDetalleRepuesto(DetalleRepuesto listaDetalleRepuesto) {
+    public void setListaDetalleRepuesto(List<DetalleRepuesto> listaDetalleRepuesto) {
         this.listaDetalleRepuesto = listaDetalleRepuesto;
     }
 }
