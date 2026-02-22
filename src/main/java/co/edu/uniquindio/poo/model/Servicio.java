@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Servicio {
 private LocalDate fecha;
+private String codigo;
 private String motivo;
 private String diagnostico;
 private int trabajosRealizados;
@@ -17,6 +18,7 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
     /**
      * Constructor con los atributos
      * @param fecha ingreso al servicio
+     * @param codigo de servicio
      * @param motivo de servicio
      * @param diagnostico post servicio
      * @param trabajosRealizados hasta la fecha del servicio
@@ -26,9 +28,10 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
      * @param cliente a quien se le brinda el servicio
      * @param listaDetalleRepuesto utilizados en el servicio
      */
-    public Servicio(LocalDate fecha, String motivo, String diagnostico, int trabajosRealizados, int costoTotal,
+    public Servicio(LocalDate fecha, String codigo, String motivo, String diagnostico, int trabajosRealizados, int costoTotal,
                     Taller ownedByTaller, Mecanico mecanico, Cliente cliente, List<DetalleRepuesto> listaDetalleRepuesto) {
         this.fecha = fecha;
+        this.codigo=codigo;
         this.motivo = motivo;
         this.diagnostico = diagnostico;
         this.trabajosRealizados = trabajosRealizados;
@@ -52,6 +55,23 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
      */
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return codigo del servicio
+     */
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * Metodo para actualizar el codigo del servicio
+     * @param codigo del servicio
+     */
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     /**
