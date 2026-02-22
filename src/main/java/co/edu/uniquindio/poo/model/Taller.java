@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -390,6 +391,37 @@ public class Taller {
             mensaje = "el repuesto no existe en el taller";
         }
         return mensaje;
+    }
+
+    /**
+     * metodo para consultar la orden programada en una fecha especifica
+     * @param fecha de la orden programada
+     * @return lista de ordenes programadas
+     */
+    public List<Servicio> consultarOrdenProgramada(String fecha){
+        List<Servicio> listaOrdenes= new ArrayList<>();
+        for(Servicio servicio :listaServicios){
+            if(servicio.getFecha().equals(fecha)){
+                listaOrdenes.add(servicio);
+            }
+        }
+        return listaOrdenes;
+    }
+
+    /**
+     * metodo para consultar el historial de la bicicleta
+     * @param codigo de la bicicleta
+     * @return el historial de la bicicleta
+     */
+
+    public List<Servicio> consultarHistorialBici(String codigo){
+        List<Servicio> Historial=new ArrayList<>();
+        for(Servicio servicio:listaServicios){
+            if(servicio.getCodigo().equals(codigo)){
+                Historial.add(servicio);
+            }
+        }
+        return Historial;
     }
 
 
