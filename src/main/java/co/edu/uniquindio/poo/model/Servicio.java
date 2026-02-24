@@ -9,7 +9,7 @@ private String codigo;
 private String motivo;
 private String diagnostico;
 private int trabajosRealizados;
-private int costoTotal;
+private double costoTotal;
 private Taller ownedByTaller;
 private Mecanico mecanico;
 private Cliente cliente;
@@ -22,14 +22,13 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
      * @param motivo de servicio
      * @param diagnostico post servicio
      * @param trabajosRealizados hasta la fecha del servicio
-     * @param costoTotal del servicio
      * @param ownedByTaller taller a quien pertenece el servicio
      * @param mecanico asignado al servicio
      * @param cliente a quien se le brinda el servicio
      * @param listaDetalleRepuesto utilizados en el servicio
      */
-    public Servicio(LocalDate fecha, String codigo, String motivo, String diagnostico, int trabajosRealizados, int costoTotal,
-                    Taller ownedByTaller, Mecanico mecanico, Cliente cliente, List<DetalleRepuesto> listaDetalleRepuesto) {
+    public Servicio(LocalDate fecha, String codigo, String motivo, String diagnostico, int trabajosRealizados,
+                    double costoTotal, Taller ownedByTaller, Mecanico mecanico, Cliente cliente, List<DetalleRepuesto> listaDetalleRepuesto) {
         this.fecha = fecha;
         this.codigo=codigo;
         this.motivo = motivo;
@@ -38,8 +37,7 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
         this.costoTotal = costoTotal;
         this.ownedByTaller = ownedByTaller;
         this.mecanico = mecanico;
-        this.cliente = cliente;
-        this.listaDetalleRepuesto = listaDetalleRepuesto;
+        this.cliente = cliente;        this.listaDetalleRepuesto = listaDetalleRepuesto;
     }
 
     /**
@@ -122,15 +120,17 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
     /**
      * @return costo total del servicio
      */
-    public int getCostoTotal() {
+    public double getCostoTotal(double precioServicio) {
+        double costoParcial= precioServicio + sumarSubtotal();
+        double costoTotal= costoParcial - calcularDescuento(costoParcial);
         return costoTotal;
     }
 
     /**
-     * Metodo para actualizar el costo total del servicio
+     * Metodo para actualizar costo total del servicio
      * @param costoTotal
      */
-    public void setCostoTotal(int costoTotal) {
+    public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
     }
 
@@ -192,5 +192,30 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
      */
     public void setListaDetalleRepuesto(List<DetalleRepuesto> listaDetalleRepuesto) {
         this.listaDetalleRepuesto = listaDetalleRepuesto;
+    }
+
+    /**
+     * Metodo para obtener la suma de los subtotales de los diversos repuestos empleados
+     * @return la suma total de los diversos subtotales de los repuestos empleados
+     */
+    public double sumarSubtotal(){
+      double suma= 0;
+        for(DetalleRepuesto detalleRepuesto: listaDetalleRepuesto){
+            suma += detalleRepuesto.getSubtotal();
+        }
+        return suma;
+    }
+
+    /**
+     * Metodo para calcular si se debe realizar un descuento
+     * @param costoTotal del servicio como base del descuento
+     * @return valor a aplicar descuento si cumple la condición
+     */
+    public double calcularDescuento(double costoTotal){
+       double descuento=0;
+        if (trabajosRealizados ==5){
+            descuento= (costoTotal*0.25);
+        }
+        return  descuento;
     }
 }
