@@ -5,7 +5,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="-1.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INICIO" textAlignment="CENTER" wrappingWidth="502.0">
@@ -13,11 +12,11 @@
             <Font size="40.0" />
          </font>
       </Text>
-      <Circle accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="250.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="98.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="402.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="174.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="326.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonRegistroBici" accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="250.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonRegistroPersona" accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="98.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonRegistroServicio" accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="402.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonHistorialServicios" accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="174.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonConsultaServiciosDia" accessibleRole="BUTTON" fill="DODGERBLUE" layoutX="326.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="44.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro Persona" textAlignment="CENTER" wrappingWidth="108.76060485839844">
          <font>
             <Font size="14.0" />
