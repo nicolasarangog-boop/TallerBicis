@@ -233,10 +233,10 @@ public class Taller {
         String mensaje = "";
         Optional<Bicicleta> bicicletaExistente = buscarBicicleta(nuevaBicicleta.getNoSerial());
         if (bicicletaExistente.isPresent()) {
-            mensaje = "la bicicleta con el noSerial: " + nuevaBicicleta.getNoSerial() + " ya existe en el taller";
+            mensaje = "la bicicleta.css con el noSerial: " + nuevaBicicleta.getNoSerial() + " ya existe en el taller";
         } else {
             listaBicicletas.add(nuevaBicicleta);
-            mensaje = "La bicicleta con " + nuevaBicicleta.getNoSerial() + " fue agregado exitosamente";
+            mensaje = "La bicicleta.css con " + nuevaBicicleta.getNoSerial() + " fue agregado exitosamente";
         }
         return mensaje;
     }
@@ -260,9 +260,9 @@ public class Taller {
             bicicletaExistente.get().setMarca(nuevaMarca);
             bicicletaExistente.get().setNoSerial(nuevoNoSerial);
             bicicletaExistente.get().setAnio(nuevoAnio);
-            mensaje = "la bicicleta con noSerial: " + noSerial + " fue actualizada correctamente";
+            mensaje = "la bicicleta.css con noSerial: " + noSerial + " fue actualizada correctamente";
         } else {
-            mensaje = "la bicicleta no existe en el taller";
+            mensaje = "la bicicleta.css no existe en el taller";
         }
         return mensaje;
     }
@@ -275,9 +275,9 @@ public class Taller {
         Optional<Bicicleta> bicicletaExistente = buscarBicicleta(noSerial);
         if (bicicletaExistente.isPresent()) {
             listaBicicletas.remove(bicicletaExistente.get());
-            mensaje = "la bicicleta con noSerial " + noSerial + " fue eliminada exitosamente";
+            mensaje = "la bicicleta.css con noSerial " + noSerial + " fue eliminada exitosamente";
         } else {
-            mensaje = "la bicicleta no existe en el taller";
+            mensaje = "la bicicleta.css no existe en el taller";
         }
         return mensaje;
     }
@@ -409,9 +409,9 @@ public class Taller {
     }
 
     /**
-     * metodo para consultar el historial de la bicicleta
-     * @param codigo de la bicicleta
-     * @return el historial de la bicicleta
+     * metodo para consultar el historial de la bicicleta.css
+     * @param codigo de la bicicleta.css
+     * @return el historial de la bicicleta.css
      */
 
     public List<Servicio> consultarHistorialBici(String codigo){
