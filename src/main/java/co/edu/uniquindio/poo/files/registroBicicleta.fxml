@@ -25,3 +25,4 @@
       <Label layoutX="42.0" layoutY="380.0" text="Nombre propietario:" />
     </children>
 </AnchorPane>
+
