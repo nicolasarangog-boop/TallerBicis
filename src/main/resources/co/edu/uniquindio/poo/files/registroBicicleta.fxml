@@ -6,23 +6,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" stylesheets="@css/bicicleta.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="182.0" layoutY="23.0" text="Registro bicicleta" />
-        <TextField layoutX="37.0" layoutY="102.0" prefHeight="36.0" prefWidth="422.0" stylesheets="@css/persona.css" />
+        <Label layoutX="182.0" layoutY="23.0" text="Registro Bicicleta" />
+        <TextField fx:id="fxMarca" layoutX="37.0" layoutY="102.0" prefHeight="36.0" prefWidth="422.0" promptText="Ingrese la marca de la bicicleta" stylesheets="@css/persona.css" />
         <Label layoutX="43.0" layoutY="66.0" text="Marca:" />
-        <Label layoutX="43.0" layoutY="146.0" text="NoSerial:" />
-        <TextField layoutX="37.0" layoutY="260.0" prefHeight="36.0" prefWidth="422.0" stylesheets="@css/persona.css" />
-        <Label layoutX="39.0" layoutY="226.0" text="color:" />
-        <TextField layoutX="37.0" layoutY="183.0" prefHeight="36.0" prefWidth="422.0" stylesheets="@css/persona.css" />
+        <Label layoutX="43.0" layoutY="146.0" text="No. Serial:" />
+        <TextField fx:id="fxColor" layoutX="37.0" layoutY="260.0" prefHeight="36.0" prefWidth="422.0" promptText="Ingrese el color de la bicicleta" stylesheets="@css/persona.css" />
+        <Label layoutX="39.0" layoutY="226.0" text="Color:" />
+        <TextField fx:id="fxNoSerial" layoutX="37.0" layoutY="183.0" prefHeight="36.0" prefWidth="422.0" promptText="Ingrese No. Serial de la bicicleta" stylesheets="@css/persona.css" />
         <Label layoutX="42.0" layoutY="303.0" text="Año:" />
-        <TextField layoutX="35.0" layoutY="336.0" prefHeight="36.0" prefWidth="422.0" stylesheets="@css/persona.css" />
-        <Button layoutX="190.0" layoutY="558.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="119.0" stylesheets="@css/persona.css" text="Registrar" />
+        <TextField fx:id="fxAnio" layoutX="35.0" layoutY="336.0" prefHeight="36.0" prefWidth="422.0" promptText="Ingrese la antiguedad de la bicicleta" stylesheets="@css/persona.css" />
+        <Button fx:id="fxBotonRegistrar" layoutX="190.0" layoutY="558.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="119.0" stylesheets="@css/persona.css" text="Registrar" />
       <Label layoutX="41.0" layoutY="462.0" text="Tipo:" />
-      <ComboBox layoutX="38.0" layoutY="497.0" prefHeight="27.0" prefWidth="409.0" promptText="Tipo Bicicleta" stylesheets="@css/bicicleta.css" />
-      <TextField layoutX="37.0" layoutY="412.0" prefHeight="36.0" prefWidth="422.0" stylesheets="@css/persona.css" />
-      <Label layoutX="42.0" layoutY="380.0" text="Nombre propietario:" />
+      <ComboBox fx:id="fxTipoBicicleta" layoutX="38.0" layoutY="497.0" prefHeight="27.0" prefWidth="409.0" promptText="Tipo Bicicleta" stylesheets="@css/bicicleta.css" />
+      <TextField fx:id="fxID" layoutX="37.0" layoutY="412.0" prefHeight="36.0" prefWidth="422.0" promptText="Ingrese el ID registrado del propietario" stylesheets="@css/persona.css" />
+      <Label layoutX="42.0" layoutY="380.0" text="ID Propietario:" />
     </children>
 </AnchorPane>
-
