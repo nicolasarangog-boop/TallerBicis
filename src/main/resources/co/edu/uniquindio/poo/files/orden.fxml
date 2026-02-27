@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="500.0" prefWidth="500.0" spacing="10" stylesheets="@css/orden.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.OrdenTrabajoController">
+
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15" />
+    </padding>
+
+    <!-- Título -->
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Orden de servicio" />
+
+    <!-- Información General -->
+    <GridPane hgap="10" vgap="10">
+
+        <Label text="Fecha:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <DatePicker fx:id="dpFecha" prefHeight="27.0" prefWidth="142.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Código:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <TextField fx:id="txtCodigo" prefHeight="26.0" prefWidth="89.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+        <Label text="Motivo:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextArea fx:id="txtMotivo" prefRowCount="2" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+
+        <Label text="Diagnóstico:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextArea fx:id="txtDiagnostico" prefRowCount="2" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+
+        <Label text="Trabajos realizados:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextArea fx:id="txtTrabajos" prefRowCount="2" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+
+    </GridPane>
+
+    <!-- Tabla de Repuestos -->
+    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Repuestos Utilizados" />
+
+    <TableView fx:id="tablaRepuestos" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colRepuesto" prefWidth="150" text="Repuesto" />
+            <TableColumn fx:id="colCantidad" prefWidth="100" text="Cantidad" />
+            <TableColumn fx:id="colPrecio" prefWidth="120" text="Precio Unitario" />
+            <TableColumn fx:id="colSubtotal" prefWidth="120" text="Subtotal" />
+        </columns>
+    </TableView>
+
+    <!-- Total -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label style="-fx-font-weight: bold;" text="TOTAL:" />
+        <Label fx:id="lblTotal" style="-fx-font-size: 14px; -fx-text-fill: green;" text="0.00" />
+    </HBox>
+
+    <!-- Botones -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#agregarRepuesto" text="Agregar Repuesto" />
+        <Button onAction="#calcularTotal" text="Calcular Total" />
+    </HBox>
+
+</VBox>
