@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="716.0" stylesheets="@css/tablaOrdenProgramada.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label layoutX="262.0" layoutY="24.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Orden Programada" />
+    <TableView fx:id="fxTablaHistorialBicis" layoutX="18.0" layoutY="73.0" prefHeight="354.0" prefWidth="679.0">
+        <columns>
+            <TableColumn prefWidth="80" text="Código" />
+            <TableColumn prefWidth="100" text="Motivo" />
+            <TableColumn prefWidth="120" text="Diagnóstico" />
+            <TableColumn prefWidth="150" text="Trabajos realizados" />
+            <TableColumn prefWidth="90" text="Costo total" />
+            <TableColumn prefWidth="120" text="Repuestos" />
+        </columns>
+    </TableView>
+    <Button layoutX="322.0" layoutY="443.0" mnemonicParsing="false" text="Ir atrás" />
+
+</AnchorPane>
