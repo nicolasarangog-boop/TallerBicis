@@ -7,7 +7,7 @@ public class Bicicleta {
     private String anio;
     private TipoBicicleta tipo;
     private Cliente cliente;
-    private Taller taller;
+    private Taller ownedByTaller;
 
     /**
      * Constructor con los atributos de:
@@ -17,17 +17,17 @@ public class Bicicleta {
      * @param anio antiguedad de la bicicleta.css
      * @param tipo de la bicicleta.css
      * @param cliente dueño de la bicicleta.css
-     * @param taller asociado a la bicicleta.css
+     * @param ownedByTaller asociado a la bicicleta.css
      */
     public Bicicleta(String color, String marca, String noSerial, String anio, TipoBicicleta tipo,
-                     Cliente cliente, Taller taller) {
+                     Cliente cliente, Taller ownedByTaller) {
         this.color = color;
         this.marca = marca;
         this.noSerial = noSerial;
         this.anio = anio;
         this.tipo = tipo;
         this.cliente = cliente;
-        this.taller = taller;
+        this.ownedByTaller = ownedByTaller;
     }
 
     /**
@@ -123,15 +123,15 @@ public class Bicicleta {
     /**
      * @return taller asociado a la bicicletq
      */
-    public Taller getTaller() {
-        return taller;
+    public Taller getOwnedByTaller() {
+        return ownedByTaller;
     }
 
     /**
      * Metodo para actualizar el taller asociado a la bicicleta.css
-     * @param taller
+     * @param ownedByTaller
      */
-    public void setTaller(Taller taller) {
-        this.taller = taller;
+    public void setOwnedByTaller(Taller ownedByTaller) {
+        this.ownedByTaller = ownedByTaller;
     }
 }

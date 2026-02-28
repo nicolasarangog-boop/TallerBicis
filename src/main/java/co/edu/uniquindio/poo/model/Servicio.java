@@ -37,7 +37,8 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
         this.costoTotal = costoTotal;
         this.ownedByTaller = ownedByTaller;
         this.mecanico = mecanico;
-        this.cliente = cliente;        this.listaDetalleRepuesto = listaDetalleRepuesto;
+        this.cliente = cliente;
+        this.listaDetalleRepuesto = listaDetalleRepuesto;
     }
 
     /**
@@ -120,9 +121,7 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
     /**
      * @return costo total del servicio
      */
-    public double getCostoTotal(double precioServicio) {
-        double costoParcial= precioServicio + sumarSubtotal();
-        double costoTotal= costoParcial - calcularDescuento(costoParcial);
+    public double getCostoTotal () {
         return costoTotal;
     }
 
@@ -198,7 +197,7 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
      * Metodo para obtener la suma de los subtotales de los diversos repuestos empleados
      * @return la suma total de los diversos subtotales de los repuestos empleados
      */
-    public double sumarSubtotal(){
+    public double calcularsumaSubtotal(){
       double suma= 0;
         for(DetalleRepuesto detalleRepuesto: listaDetalleRepuesto){
             suma += detalleRepuesto.getSubtotal();
@@ -216,6 +215,17 @@ private List<DetalleRepuesto> listaDetalleRepuesto;
         if (trabajosRealizados ==5){
             descuento= (costoTotal*0.25);
         }
-        return  descuento;
+        return descuento;
+    }
+
+    /**
+     * Metodo para calcular el costo total del servicio
+     * @param precioServicio ingresado por el administrador
+     * @return
+     */
+    public double calcularCostoTotal(double precioServicio){
+        double costoParcial= precioServicio + calcularsumaSubtotal();
+        double costoTotal= costoParcial - calcularDescuento(costoParcial);
+        return costoTotal;
     }
 }
