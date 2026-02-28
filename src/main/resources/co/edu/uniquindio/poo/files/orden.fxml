@@ -75,6 +75,7 @@
 
     <!-- Botones -->
     <HBox alignment="CENTER_RIGHT" spacing="10">
+      <Button fx:id="btnAtras" layoutX="175.0" layoutY="10.0" onAction="#agregarRepuesto" text="Ir atrás" />
         <Button onAction="#agregarRepuesto" text="Agregar Repuesto" />
         <Button onAction="#calcularTotal" text="Calcular Total" />
     </HBox>
