@@ -14,6 +14,9 @@ public class Paths {
     public static final String HISTORIAL_SERVICIOS_BICI = BASE + "historialServiciosBici.fxml";
     public static final String CREAR_SERVICIO = BASE + "orden.fxml";
     public static final String CREAR_REPUESTO = BASE + "repuesto.fxml";
+    public static final String CONSULTAR_ORDEN = BASE + "consultaOrdenProgramada.fxml";
+    public static final String TABLA_CONSULTAR_ORDEN = BASE + "OrdenProgramada.fxml";
+    public static final String TABLA_HISTORIAL_BICI = BASE + "tablaHistorialBici.fxml";
 
     //Ruta de archivos css
     public static final String CSS_INICIO= BASE + "css/inicio.css";
@@ -23,4 +26,7 @@ public class Paths {
     public static final String CSS_HISTORIAL_SERVICIOS_BICI= BASE + "css/historialServiciosBicicleta.css";
     public static final String CSS_CREAR_SERVICIO= BASE + "css/orden.css";
     public static final String CSS_CREAR_REPUESTO= BASE + "css/repuesto.css";
+    public static final String CSS_CONSULTAR_ORDEN= BASE + "css/consultarServiciodia.css";
+    public static final String CSS_TABLA_CONSULTAR_ORDEN= BASE + "css/tablaOrdenProgramada.css";
+    public static final String CSS_TABLA_HISTORIAL_BICI= BASE + "css/tablaHistorialBici.css";
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/inicio.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/inicio.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewcontroller.InicioViewController">
     <children>
         <Text layoutX="-1.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INICIO" textAlignment="CENTER" wrappingWidth="502.0">
             <font>
@@ -19,43 +19,43 @@
             <Image url="@css/registroBicicleta.png" />
          </image>
       </ImageView>
-        <Circle fx:id="fxBotonRegistroBici" accessibleRole="BUTTON" fill="#ebedf028" layoutX="204.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="fxBotonRegistroBici" accessibleRole="BUTTON" fill="#ebedf028" layoutX="204.0" layoutY="120.0" onMouseClicked="#cambioHaciaRegistrarBicicleta" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="108.0" fitWidth="109.0" layoutX="27.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/registroPersona.png" />
          </image>
       </ImageView>
-        <Circle fx:id="fxBotonRegistroPersona" accessibleRole="BUTTON" fill="#a9a7b103" layoutX="81.0" layoutY="122.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="fxBotonRegistroPersona" accessibleRole="BUTTON" fill="#a9a7b103" layoutX="81.0" layoutY="122.0" onMouseClicked="#cambioHaciaRegistrarCliente" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="136.0" fitWidth="98.0" layoutX="288.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/registroServicio.png" />
          </image>
       </ImageView>
-        <Circle fx:id="fxBotonRegistroServicio" accessibleRole="BUTTON" fill="#1f93ff0e" layoutX="333.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="fxBotonRegistroServicio" accessibleRole="BUTTON" fill="#1f93ff0e" layoutX="333.0" layoutY="120.0" onMouseClicked="#cambioHaciaRegistrarServicio" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="102.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/historialServicioBicicleta.png" />
          </image>
       </ImageView>
-      <Circle fx:id="fxBotonHistorialServicios" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="144.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonHistorialServicios" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="144.0" layoutY="242.0" onMouseClicked="#cambioHaciaHistorialServiciosBici" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="229.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/consultaServicioDia.png" />
          </image>
       </ImageView>
-        <Circle fx:id="fxBotonHistorialServicios" accessibleRole="BUTTON" fill="#1f93ff0c" layoutX="271.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="fxBotonHistorialServicios" accessibleRole="BUTTON" fill="#1f93ff0c" layoutX="271.0" layoutY="242.0" onMouseClicked="#cambioHaciaConsultarOrden" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="92.0" fitWidth="91.0" layoutX="402.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/crearRepuestos.png" />
          </image>
       </ImageView>
-        <Circle fx:id="fxBotonCrearRepuesto" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="447.0" layoutY="120.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="fxBotonCrearRepuesto" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="447.0" layoutY="120.0" onMouseClicked="#cambioHaciaCrearRepuesto" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="83.0" fitWidth="84.0" layoutX="334.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/registroMecanico.png" />
          </image>
       </ImageView>
-      <Circle fx:id="fxBotonRegistroMecanico" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="375.0" layoutY="242.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="fxBotonRegistroMecanico" accessibleRole="BUTTON" fill="#1f93ff0b" layoutX="375.0" layoutY="242.0" onMouseClicked="#cambioHaciaRegistrarMecanico" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
         <Text layoutX="27.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card" text="Registro Cliente" textAlignment="CENTER" wrappingWidth="108.76060485839844">
             <font>
                 <Font size="14.0" />
