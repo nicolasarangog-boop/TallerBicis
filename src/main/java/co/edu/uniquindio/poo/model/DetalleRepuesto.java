@@ -58,7 +58,6 @@ public class DetalleRepuesto {
      * @return el subtotal de un repuesto
      */
     public double getSubtotal() {
-        double subtotal= precioUnitario * cantidad;
         return subtotal;
     }
 
@@ -98,6 +97,10 @@ public class DetalleRepuesto {
      */
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
+    }
+
+    public double calcularSubtotal(){
+        return cantidad * precioUnitario;
     }
 }
 
