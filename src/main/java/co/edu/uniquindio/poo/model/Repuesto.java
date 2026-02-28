@@ -6,7 +6,7 @@ public class Repuesto {
     private String nombre;
     private String codigo;
     private int stockDisponible;
-    private Taller taller;
+    private Taller ownedByTaller;
     private List<DetalleRepuesto> listaDetalleRepuesto;
 
     /**
@@ -14,15 +14,15 @@ public class Repuesto {
      * @param nombre del repuesto
      * @param codigo del repuesto
      * @param stockDisponible del repuesto
-     * @param taller asociado al repuesto
+     * @param ownedByTaller asociado al repuesto
      * @param listaDetalleRepuesto
      */
-    public Repuesto(String nombre, String codigo, int stockDisponible, Taller taller,
+    public Repuesto(String nombre, String codigo, int stockDisponible, Taller ownedByTaller,
                     List<DetalleRepuesto> listaDetalleRepuesto) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.stockDisponible = stockDisponible;
-        this.taller = taller;
+        this.ownedByTaller = ownedByTaller;
         this.listaDetalleRepuesto = listaDetalleRepuesto;
     }
 
@@ -74,16 +74,16 @@ public class Repuesto {
     /**
      * @return el taller asociado
      */
-    public Taller getTaller() {
-        return taller;
+    public Taller getOwnedByTaller() {
+        return ownedByTaller;
     }
 
     /**
      * Metodo para actualizar el taller asociado
-     * @param taller
+     * @param ownedByTaller
      */
-    public void setTaller(Taller taller) {
-        this.taller = taller;
+    public void setOwnedByTaller(Taller ownedByTaller) {
+        this.ownedByTaller = ownedByTaller;
     }
 
     /**
