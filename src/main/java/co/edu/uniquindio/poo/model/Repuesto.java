@@ -5,7 +5,6 @@ import java.util.List;
 public class Repuesto {
     private String nombre;
     private String codigo;
-    private String marca;
     private int stockDisponible;
     private Taller taller;
     private List<DetalleRepuesto> listaDetalleRepuesto;
@@ -14,16 +13,14 @@ public class Repuesto {
      * Constructor con los atributos
      * @param nombre del repuesto
      * @param codigo del repuesto
-     * @param marca del repuesto
      * @param stockDisponible del repuesto
      * @param taller asociado al repuesto
      * @param listaDetalleRepuesto
      */
-    public Repuesto(String nombre, String codigo, String marca, int stockDisponible, Taller taller,
+    public Repuesto(String nombre, String codigo, int stockDisponible, Taller taller,
                     List<DetalleRepuesto> listaDetalleRepuesto) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.marca = marca;
         this.stockDisponible = stockDisponible;
         this.taller = taller;
         this.listaDetalleRepuesto = listaDetalleRepuesto;
@@ -57,21 +54,6 @@ public class Repuesto {
      */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    /**
-     * @return marca del repuesto
-     */
-    public String getMarca() {
-        return marca;
-    }
-
-    /**
-     * Metodo para actualizar la marca del repuesto
-     * @param marca
-     */
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     /**

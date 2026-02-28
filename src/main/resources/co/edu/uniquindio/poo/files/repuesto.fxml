@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@css/repuesto.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="112.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repuesto" wrappingWidth="180.67034912109375">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="60.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre" wrappingWidth="67.09333038330078" />
+      <TextField layoutX="61.0" layoutY="137.0" prefHeight="38.0" prefWidth="281.0" promptText="Ingrese nombre del repuesto" />
+      <Text layoutX="60.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="codigo" wrappingWidth="67.09333038330078" />
+      <TextField layoutX="60.0" layoutY="199.0" prefHeight="38.0" prefWidth="282.0" promptText="Ingrese codigo del repuesto" />
+      <Text layoutX="61.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock disponible" wrappingWidth="165.49335479736328" />
+      <TextField layoutX="61.0" layoutY="282.0" prefHeight="38.0" prefWidth="282.0" promptText="Ingrese stock disponible del repuesto" />
+      <Button layoutX="180.0" layoutY="387.0" mnemonicParsing="false" text="Crear repuesto" />
+      <ImageView fitHeight="184.0" fitWidth="141.0" layoutX="-9.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@css/icono.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

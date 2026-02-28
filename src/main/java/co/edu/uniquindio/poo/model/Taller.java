@@ -362,14 +362,13 @@ public class Taller {
     /**
      * Metodo para actualizar repuestos en el taller
      */
-    public String actualizarRepuesto(String nuevoNombre, String nuevoCodigo, String codigo, String nuevaMarca,
+    public String actualizarRepuesto(String nuevoNombre, String nuevoCodigo, String codigo,
                                      int nuevoStockDisponible) {
         String mensaje = "";
         Optional<Repuesto> repuestoExistente = buscarRepuesto(codigo);
         if (repuestoExistente.isPresent()) {
             repuestoExistente.get().setNombre(nuevoNombre);
             repuestoExistente.get().setCodigo(nuevoCodigo);
-            repuestoExistente.get().setMarca(nuevaMarca);
             repuestoExistente.get().setStockDisponible(nuevoStockDisponible);
             mensaje = "el repuesto con codigo: " + codigo + " fue actualizado correctamente";
         } else {
