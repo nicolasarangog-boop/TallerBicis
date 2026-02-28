@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500" prefWidth="808.0" stylesheets="@css/tablaHistorialBici.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25">
+    <Label layoutX="263.0" layoutY="22.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Historial de las bicicletas" />
+    <TableView fx:id="tablaHistorialBicis" layoutX="25" layoutY="70" prefHeight="350" prefWidth="758.0">
+        <columns>
+            <TableColumn prefWidth="80" text="Fecha" />
+            <TableColumn prefWidth="80" text="Código" />
+            <TableColumn prefWidth="100" text="Motivo" />
+            <TableColumn prefWidth="120" text="Diagnóstico" />
+            <TableColumn prefWidth="150" text="Trabajos realizados" />
+            <TableColumn prefWidth="90" text="Costo total" />
+            <TableColumn prefWidth="120" text="Repuestos" />
+        </columns>
+    </TableView>
+   <Button layoutX="373.0" layoutY="433.0" mnemonicParsing="false" text="Ir atrás" />
+
+</AnchorPane>
