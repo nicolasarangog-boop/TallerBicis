@@ -4,8 +4,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane minHeight="650.0" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: linear-gradient(to bottom, #c7e9ff, #77bfff);;" stylesheets="@css/mecanico.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <children>
@@ -18,10 +19,16 @@
         <TextField layoutX="39.0" layoutY="239.0" prefHeight="30.0" prefWidth="414.0" stylesheets="@css/persona.css" />
         <Label layoutX="38.0" layoutY="282.0" text="Dirección:" />
         <TextField layoutX="39.0" layoutY="397.0" prefHeight="22.0" prefWidth="414.0" stylesheets="@css/persona.css" />
-        <Button layoutX="180.0" layoutY="560.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="119.0" stylesheets="@css/persona.css" text="Registrar" />
+        <Button layoutX="165.0" layoutY="528.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" stylesheets="@css/persona.css" text="Registrar" />
       <Label layoutX="47.0" layoutY="363.0" text="Sueldo:" />
       <TextField layoutX="39.0" layoutY="316.0" prefHeight="22.0" prefWidth="414.0" stylesheets="@css/persona.css" />
       <Label layoutX="43.0" layoutY="433.0" text="Especialidad:" />
       <ComboBox fx:id="cbEspecialidad" layoutX="40.0" layoutY="466.0" prefHeight="37.0" prefWidth="411.0" promptText="Seleccione especialidad" stylesheets="@css/mecanico.css" />
+      <Button fx:id="btnAtras" layoutX="190.0" layoutY="589.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="119.0" stylesheets="@css/persona.css" text="Ir atrás" />
+      <ImageView fitHeight="116.0" fitWidth="141.0" layoutX="370.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@css/registroPersona.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
