@@ -5,7 +5,7 @@ public abstract class Persona {
     protected String tel;
     protected String direccion;
     protected String id;
-    protected Taller taller;
+    protected Taller ownedByTaller;
 
     /**
      * constructor con atributos
@@ -13,14 +13,14 @@ public abstract class Persona {
      * @param tel de la persona
      * @param direccion de la persona
      * @param id de la persona
-     * @param taller
+     * @param ownedByTaller
      */
-    public Persona (String nombre, String tel, String direccion, String id, Taller taller ){
+    public Persona (String nombre, String tel, String direccion, String id, Taller ownedByTaller){
         this.nombre=nombre;
         this.tel=tel;
         this.direccion=direccion;
         this.id=id;
-        this.taller=taller;
+        this.ownedByTaller = ownedByTaller;
     }
 
     /**
@@ -94,16 +94,16 @@ public abstract class Persona {
      * @return el taller
      */
 
-    public Taller getTaller() {
-        return taller;
+    public Taller getOwnedByTaller() {
+        return ownedByTaller;
     }
 
     /**
      * Metodo para actualizar el taller
-     * @param taller
+     * @param ownedByTaller
      */
 
-    public void setTaller(Taller taller) {
-        this.taller = taller;
+    public void setOwnedByTaller(Taller ownedByTaller) {
+        this.ownedByTaller = ownedByTaller;
     }
 }
