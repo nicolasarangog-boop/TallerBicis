@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@css/repuesto.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@css/repuesto.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewcontroller.RegistroRepuestoViewController">
    <children>
       <Text layoutX="144.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repuesto" wrappingWidth="180.67034912109375">
          <font>
@@ -19,23 +19,23 @@
          <font>
             <Font size="20.0" />
          </font></Text>
-      <TextField layoutX="29.0" layoutY="136.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese nombre del repuesto" />
+      <TextField fx:id="fxNombreRp" layoutX="29.0" layoutY="136.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese nombre del repuesto" />
       <Text layoutX="29.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código" wrappingWidth="119.89331817626953">
          <font>
             <Font size="21.0" />
          </font></Text>
-      <TextField layoutX="29.0" layoutY="221.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese código del repuesto" />
+      <TextField fx:id="fxCodigoRp" layoutX="29.0" layoutY="221.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese código del repuesto" />
       <Text layoutX="29.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock disponible" wrappingWidth="165.49335479736328">
          <font>
             <Font size="19.0" />
          </font></Text>
-      <TextField layoutX="29.0" layoutY="302.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese stock disponible del repuesto" />
-      <Button layoutX="169.0" layoutY="372.0" mnemonicParsing="false" text="Crear repuesto" />
+      <TextField fx:id="fxStockRp" layoutX="29.0" layoutY="302.0" prefHeight="38.0" prefWidth="346.0" promptText="Ingrese stock disponible del repuesto" />
+      <Button fx:id="fxBtnCrearRp" layoutX="169.0" layoutY="372.0" mnemonicParsing="false" text="Crear repuesto" />
       <ImageView fitHeight="194.0" fitWidth="220.0" layoutX="14.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/icono.png" />
          </image>
       </ImageView>
-      <Button layoutX="190.0" layoutY="431.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="98.0" text="Ir atrás" />
+      <Button fx:id="fxBtnAtras" layoutX="190.0" layoutY="431.0" mnemonicParsing="false" onAction="#cambioHaciaInicio" prefHeight="42.0" prefWidth="98.0" text="Ir atrás" />
    </children>
 </AnchorPane>

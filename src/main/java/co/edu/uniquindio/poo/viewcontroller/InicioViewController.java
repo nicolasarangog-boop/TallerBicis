@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.input.MouseEvent;
 
-public class inicioViewController {
+public class InicioViewController {
 
     @FXML
     private Circle fxBotonRegistroBici;
@@ -55,6 +55,6 @@ public class inicioViewController {
 
     @FXML
     void cambioHaciaConsultarOrden(MouseEvent event){
-        App.app.setScene(Paths.CREAR_REPUESTO);
+        App.app.setScene(Paths.CONSULTAR_ORDEN);
     }
 }
