@@ -9,12 +9,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.List;
 
 public class App extends Application {
 
     public static App app;
     public static Taller taller = new Taller("Taller Bicis", "+57 311", "cll 1 #2-30", "900.700.340",
             new LinkedList<>(), new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+    // Contenedor de resultados para la tabla de historial de bicicleta
+    public static List<Servicio> resultadosHistorialBici = new LinkedList<>();
+    // Contenedor de resultados para la tabla de orden programada
+    public static List<Servicio> resultadosOrdenProgramada = new LinkedList<>();
     private Stage stageWindow;
 
     public static void main(String[] args) {
