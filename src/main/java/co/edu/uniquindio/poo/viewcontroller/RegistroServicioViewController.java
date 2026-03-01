@@ -98,13 +98,19 @@ public class RegistroServicioViewController {
     @FXML
     public void initialize() {
         if (txtTrabajos != null) {
-            txtTrabajos.setEditable(false);
-            txtTrabajos.setFocusTraversable(false);
-            txtTrabajos.setText(String.valueOf(trabajosRealizadosActual));
+            txtTrabajos.setEditable(true);
+            txtTrabajos.setFocusTraversable(true);
+            if (txtTrabajos.getText() == null || txtTrabajos.getText().isBlank()) {
+                txtTrabajos.setText("0");
+            }
+            // Filtro: solo permitir dígitos
+            txtTrabajos.textProperty().addListener((obs, oldVal, newVal) -> {
+                if (newVal != null && !newVal.matches("\\d*")) {
+                    txtTrabajos.setText(newVal.replaceAll("\\D", ""));
+                }
+            });
         }
-        if (txtNoSerialBici != null) {
-            txtNoSerialBici.textProperty().addListener((obs, oldVal, newVal) -> actualizarTrabajosPorBicicleta(newVal));
-        }
+        // Ya no se actualiza automáticamente por No. Serial; el usuario ingresa el valor manualmente
         // Restaurar el estado previo (si existe) al volver del agregado de repuestos
         restoreFormState();
     }
@@ -206,8 +212,19 @@ public class RegistroServicioViewController {
             return;
         }
 
-        // Para el cálculo del descuento de este NUEVO servicio, se considera el histórico + 1
-        int trabajosRealizadosParaCalculo = Math.max(0, trabajosRealizadosActual + 1);
+        // Tomar los trabajos realizados ingresados manualmente
+        String trabajosStr = txtTrabajos.getText();
+        int trabajosRealizadosParaCalculo;
+        try {
+            trabajosRealizadosParaCalculo = Integer.parseInt(trabajosStr);
+            if (trabajosRealizadosParaCalculo < 0) {
+                AlertaController.showError("El número de trabajos realizados debe ser un entero no negativo");
+                return;
+            }
+        } catch (NumberFormatException ex) {
+            AlertaController.showError("Ingrese un número entero válido en 'Trabajos realizados'");
+            return;
+        }
 
         // Construir un Servicio temporal con los detalles actuales para reutilizar la lógica de negocio
         Servicio servicioTemp = new Servicio(
@@ -255,7 +272,6 @@ public class RegistroServicioViewController {
         txtMotivo.clear();
         txtDiagnostico.clear();
         if (txtTrabajos != null) {
-            trabajosRealizadosActual = 0;
             txtTrabajos.setText("0");
         }
         txtValorServicio.clear();
@@ -287,6 +303,7 @@ public class RegistroServicioViewController {
         String codigo = txtCodigo.getText();
         String motivo = txtMotivo.getText();
         String diagnostico = txtDiagnostico.getText();
+        String trabajosStr = txtTrabajos.getText();
         String noSerialBici = txtNoSerialBici.getText();
         String idCliente = txtIdCliente.getText();
         String valorServicioStr = txtValorServicio.getText();
@@ -294,10 +311,23 @@ public class RegistroServicioViewController {
         if (codigo == null || codigo.isBlank()
                 || motivo == null || motivo.isBlank()
                 || diagnostico == null || diagnostico.isBlank()
+                || trabajosStr == null || trabajosStr.isBlank()
                 || noSerialBici == null || noSerialBici.isBlank()
                 || idCliente == null || idCliente.isBlank()
                 || valorServicioStr == null || valorServicioStr.isBlank()) {
             AlertaController.showError("Todos los campos son requeridos");
+            return java.util.Optional.empty();
+        }
+
+        int trabajosRealizados;
+        try {
+            trabajosRealizados = Integer.parseInt(trabajosStr);
+            if (trabajosRealizados < 0) {
+                AlertaController.showError("El número de trabajos realizados debe ser un entero no negativo");
+                return java.util.Optional.empty();
+            }
+        } catch (NumberFormatException e) {
+            AlertaController.showError("Ingrese un número entero válido para 'Trabajos realizados'");
             return java.util.Optional.empty();
         }
 
@@ -317,9 +347,6 @@ public class RegistroServicioViewController {
             AlertaController.showWarning("Agregue al menos un detalle de repuesto antes de generar el servicio");
             return java.util.Optional.empty();
         }
-
-        // Para el nuevo servicio, el conteo a almacenar es histórico + 1
-        int trabajosRealizados = Math.max(0, trabajosRealizadosActual + 1);
 
         return java.util.Optional.of(new DatosServicio(
                 dpFecha.getValue(),

@@ -47,6 +47,13 @@ public class RegistroBicicletaViewController {
     @FXML
     void initialize() {
         fxTipoBicicleta.getItems().addAll(TipoBicicleta.values());
+
+        // Restringir el campo Año a solo dígitos
+        javafx.scene.control.TextFormatter<String> soloNumeros = new javafx.scene.control.TextFormatter<>(change -> {
+            String newText = change.getControlNewText();
+            return newText.matches("\\d*") ? change : null;
+        });
+        fxAnio.setTextFormatter(soloNumeros);
     }
 
     @FXML
