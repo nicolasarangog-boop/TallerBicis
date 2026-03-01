@@ -30,7 +30,7 @@
          </font>
       </Text>
       <TextField fx:id="fxIngresarNoSerial" layoutX="145.0" layoutY="169.0" prefHeight="36.0" prefWidth="210.0" promptText="ingrese No. Serial Bicicleta" styleClass="label" />
-      <Button fx:id="fxBotonConsultar" layoutX="144.0" layoutY="227.0" mnemonicParsing="false" styleClass="btn-primary" text="CONSULTAR HISTORIAL">
+      <Button fx:id="fxBotonConsultar" layoutX="144.0" layoutY="227.0" mnemonicParsing="false" onAction="#consultarServicios" styleClass="btn-primary" text="CONSULTAR HISTORIAL">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>

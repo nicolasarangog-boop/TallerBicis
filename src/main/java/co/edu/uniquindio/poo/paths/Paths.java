@@ -17,6 +17,7 @@ public class Paths {
     public static final String CONSULTAR_ORDEN = BASE + "consultaOrdenProgramada.fxml";
     public static final String TABLA_CONSULTAR_ORDEN = BASE + "OrdenProgramada.fxml";
     public static final String TABLA_HISTORIAL_BICI = BASE + "tablaHistorialBici.fxml";
+    public static final String TABLA_DETALLES_REPUESTO = BASE + "tablaDetalles.fxml";
 
     //Ruta de archivos css
     public static final String CSS_INICIO= BASE + "css/inicio.css";
