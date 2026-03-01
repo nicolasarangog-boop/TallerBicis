@@ -75,6 +75,7 @@
           <HBox alignment="CENTER_RIGHT" spacing="10">
               <Label style="-fx-font-weight: bold;" text="TOTAL:" />
               <Label fx:id="lblTotal" prefHeight="20.0" prefWidth="63.0" style="-fx-font-size: 14px; -fx-text-fill: green;" text="0.00" textAlignment="CENTER" />
+              <Button fx:id="btnCalcularTotal" mnemonicParsing="false" onAction="#calcularTotal" text="Calcular Total" />
           </HBox>
       </children></VBox>
 

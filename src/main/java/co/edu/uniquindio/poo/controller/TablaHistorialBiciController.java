@@ -2,9 +2,12 @@ package co.edu.uniquindio.poo.controller;
 
 import co.edu.uniquindio.poo.app.App;
 import co.edu.uniquindio.poo.model.Servicio;
+import co.edu.uniquindio.poo.paths.Paths;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -17,6 +20,14 @@ public class TablaHistorialBiciController {
     private TableView<Servicio> fxTablaHistorialBicis;
 
     @FXML
+    private Button btnAtras;
+
+    @FXML
+    void cambioHaciaHistorial(ActionEvent event) {
+        App.app.setScene(Paths.HISTORIAL_SERVICIOS_BICI);
+    }
+
+    @FXML
     private void initialize() {
         configurarColumnas();
         cargarDatos(App.resultadosHistorialBici);
@@ -25,21 +36,24 @@ public class TablaHistorialBiciController {
     private void configurarColumnas() {
         if (fxTablaHistorialBicis == null) return;
         List<TableColumn<Servicio, ?>> cols = fxTablaHistorialBicis.getColumns();
-        if (cols.size() < 6) return;
+        if (cols.size() < 7) return;
 
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colCodigo = (TableColumn<Servicio, String>) cols.get(0);
+        TableColumn<Servicio, String> colFecha = (TableColumn<Servicio, String>) cols.get(0);
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colMotivo = (TableColumn<Servicio, String>) cols.get(1);
+        TableColumn<Servicio, String> colCodigo = (TableColumn<Servicio, String>) cols.get(1);
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colDiagnostico = (TableColumn<Servicio, String>) cols.get(2);
+        TableColumn<Servicio, String> colMotivo = (TableColumn<Servicio, String>) cols.get(2);
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colTrabajos = (TableColumn<Servicio, String>) cols.get(3);
+        TableColumn<Servicio, String> colDiagnostico = (TableColumn<Servicio, String>) cols.get(3);
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colCosto = (TableColumn<Servicio, String>) cols.get(4);
+        TableColumn<Servicio, String> colTrabajos = (TableColumn<Servicio, String>) cols.get(4);
         @SuppressWarnings("unchecked")
-        TableColumn<Servicio, String> colRepuestos = (TableColumn<Servicio, String>) cols.get(5);
+        TableColumn<Servicio, String> colCosto = (TableColumn<Servicio, String>) cols.get(5);
+        @SuppressWarnings("unchecked")
+        TableColumn<Servicio, String> colRepuestos = (TableColumn<Servicio, String>) cols.get(6);
 
+        colFecha.setCellValueFactory(cd -> new SimpleStringProperty(invokeGetterAsString(cd.getValue(), "getFecha")));
         colCodigo.setCellValueFactory(cd -> new SimpleStringProperty(invokeGetterAsString(cd.getValue(), "getCodigo")));
         colMotivo.setCellValueFactory(cd -> new SimpleStringProperty(invokeGetterAsString(cd.getValue(), "getMotivo")));
         colDiagnostico.setCellValueFactory(cd -> new SimpleStringProperty(invokeGetterAsString(cd.getValue(), "getDiagnostico")));
