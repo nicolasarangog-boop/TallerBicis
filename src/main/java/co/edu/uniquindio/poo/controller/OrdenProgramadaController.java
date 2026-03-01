@@ -2,9 +2,12 @@ package co.edu.uniquindio.poo.controller;
 
 import co.edu.uniquindio.poo.app.App;
 import co.edu.uniquindio.poo.model.Servicio;
+import co.edu.uniquindio.poo.paths.Paths;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -15,6 +18,14 @@ public class OrdenProgramadaController {
 
     @FXML
     private TableView<Servicio> fxTablaHistorialBicis;
+
+    @FXML
+    private Button btnAtras;
+
+    @FXML
+    void cambioHaciaConsulta(ActionEvent event){
+        App.app.setScene(Paths.CONSULTAR_ORDEN);
+    }
 
     @FXML
     private void initialize() {

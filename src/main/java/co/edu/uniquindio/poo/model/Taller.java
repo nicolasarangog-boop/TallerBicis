@@ -397,7 +397,7 @@ public class Taller {
      * @param fecha de la orden programada
      * @return lista de ordenes programadas
      */
-    public List<Servicio> consultarOrdenProgramada(String fecha){
+    public List<Servicio> consultarOrdenProgramada(LocalDate fecha){
         List<Servicio> listaOrdenes= new ArrayList<>();
         for(Servicio servicio :listaServicios){
             if(servicio.getFecha().equals(fecha)){

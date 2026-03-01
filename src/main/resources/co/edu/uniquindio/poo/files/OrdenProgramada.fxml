@@ -18,6 +18,6 @@
             <TableColumn prefWidth="120" text="Repuestos" />
         </columns>
     </TableView>
-    <Button layoutX="322.0" layoutY="443.0" mnemonicParsing="false" text="Ir atrás" />
+    <Button fx:id="btnAtras" layoutX="322.0" layoutY="443.0" mnemonicParsing="false" onAction="#cambioHaciaConsulta" text="Ir atrás" />
 
 </AnchorPane>

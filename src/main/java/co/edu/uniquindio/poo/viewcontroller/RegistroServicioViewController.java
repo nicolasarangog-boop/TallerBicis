@@ -36,6 +36,9 @@ public class RegistroServicioViewController {
     private Label lblTotal;
 
     @FXML
+    private Button btnCalcularTotal;
+
+    @FXML
     private Button agregarRepuesto;
 
     @FXML
@@ -65,7 +68,6 @@ public class RegistroServicioViewController {
         String valorServicio;
         String noSerialBici;
         String idCliente;
-        String total;
     }
 
     private void restoreFormState() {
@@ -78,7 +80,6 @@ public class RegistroServicioViewController {
         if (txtValorServicio != null) txtValorServicio.setText(formState.valorServicio);
         if (txtNoSerialBici != null) txtNoSerialBici.setText(formState.noSerialBici);
         if (txtIdCliente != null) txtIdCliente.setText(formState.idCliente);
-        if (lblTotal != null && formState.total != null) lblTotal.setText(formState.total);
     }
 
     private void saveFormState() {
@@ -91,7 +92,6 @@ public class RegistroServicioViewController {
         s.valorServicio = txtValorServicio != null ? txtValorServicio.getText() : null;
         s.noSerialBici = txtNoSerialBici != null ? txtNoSerialBici.getText() : null;
         s.idCliente = txtIdCliente != null ? txtIdCliente.getText() : null;
-        s.total = lblTotal != null ? lblTotal.getText() : null;
         formState = s;
     }
 
@@ -244,6 +244,49 @@ public class RegistroServicioViewController {
         lblTotal.setText(String.format("%.2f", total));
     }
 
+    // Recalcula el total sin mostrar alertas si faltan/son inválidos los datos.
+    private void actualizarTotalSilencioso() {
+        try {
+            String valorStr = txtValorServicio != null ? txtValorServicio.getText() : null;
+            String trabajosStr = txtTrabajos != null ? txtTrabajos.getText() : null;
+
+            if (valorStr == null || valorStr.isBlank()) {
+                lblTotal.setText("0.00");
+                return;
+            }
+            double valorServicio = Double.parseDouble(valorStr);
+            if (valorServicio < 0) {
+                lblTotal.setText("0.00");
+                return;
+            }
+
+            int trabajos = 0;
+            if (trabajosStr != null && !trabajosStr.isBlank()) {
+                trabajos = Integer.parseInt(trabajosStr);
+                if (trabajos < 0) trabajos = 0;
+            }
+
+            Servicio servicioTemp = new Servicio(
+                    LocalDate.now(),
+                    "TEMP",
+                    "",
+                    "",
+                    trabajos,
+                    0.0,
+                    App.taller,
+                    null,
+                    null,
+                    new LinkedList<>(App.detallesServicioActual)
+            );
+
+            double total = servicioTemp.calcularCostoTotal(valorServicio);
+            lblTotal.setText(String.format("%.2f", total));
+        } catch (Exception ignored) {
+            // En modo silencioso, ante cualquier error, no molestamos al usuario con alertas.
+            lblTotal.setText("0.00");
+        }
+    }
+
     @FXML
     void generarServicio(ActionEvent event) {
         // 1) Validar y obtener datos
@@ -262,6 +305,11 @@ public class RegistroServicioViewController {
         // 4) Construir Servicio y calcular costo total
         Servicio nuevoServicio = construirServicio(datos, cliente);
 
+        // Mostrar el costo total en el label
+        if (lblTotal != null) {
+            lblTotal.setText(String.format("%.2f", nuevoServicio.getCostoTotal()));
+        }
+
         // 5) Persistir y limpiar
         persistirServicioYLimpiar(nuevoServicio);
     }
@@ -277,7 +325,6 @@ public class RegistroServicioViewController {
         txtValorServicio.clear();
         txtNoSerialBici.clear();
         txtIdCliente.clear();
-        lblTotal.setText("0.00");
         // Al limpiar el formulario tras crear el servicio, también limpiamos el estado persistido
         formState = null;
     }

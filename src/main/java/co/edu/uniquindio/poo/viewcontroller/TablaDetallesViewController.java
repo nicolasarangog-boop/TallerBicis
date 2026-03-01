@@ -68,10 +68,12 @@ public class TablaDetallesViewController {
         DetalleRepuesto detalle = new DetalleRepuesto(cantidadVal, precioUVal, 0.0, repuestoSeleccionado, null);
         detalle.setSubtotal(detalle.calcularSubtotal());
 
-        // Enlazar la tabla a la lista global y agregar directamente al respaldo global
-        fxTablaDetalleRepuestos.setItems(javafx.collections.FXCollections.observableList(App.detallesServicioActual));
-        App.detallesServicioActual.add(detalle);
-        fxTablaDetalleRepuestos.refresh();
+        // Asegurar que la tabla use una lista observable enlazada al respaldo global
+        if (fxTablaDetalleRepuestos.getItems() == null || fxTablaDetalleRepuestos.getItems().isEmpty()) {
+            fxTablaDetalleRepuestos.setItems(javafx.collections.FXCollections.observableList(App.detallesServicioActual));
+        }
+        // Agregar a través de los items de la tabla para disparar notificaciones y mantener sincronía
+        fxTablaDetalleRepuestos.getItems().add(detalle);
 
         // Limpiar campos
         fxCantidad.clear();
@@ -102,13 +104,21 @@ public class TablaDetallesViewController {
                             }
                         };
                 fxRepuesto.setCellFactory(cellFactory);
-                fxRepuesto.setButtonCell(cellFactory.call(null));
+                // Usar una ListCell explícita para el botón, evitando llamar 'call(null)'
+                fxRepuesto.setButtonCell(new javafx.scene.control.ListCell<Repuesto>() {
+                    @Override
+                    protected void updateItem(Repuesto item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(empty || item == null ? null : getNombreRepuesto(item));
+                    }
+                });
             }
 
             // Configurar y poblar TableView de detalles con respaldo global
             if (fxTablaDetalleRepuestos != null) {
-                // Crear columnas solo una vez
-                if (fxTablaDetalleRepuestos.getColumns().isEmpty()) {
+                java.util.List<javafx.scene.control.TableColumn<DetalleRepuesto, ?>> cols = fxTablaDetalleRepuestos.getColumns();
+
+                if (cols.isEmpty()) {
                     javafx.scene.control.TableColumn<DetalleRepuesto, String> colRep = new javafx.scene.control.TableColumn<>("Repuesto");
                     colRep.setCellValueFactory(cd ->
                             new javafx.beans.property.SimpleStringProperty(nombreRepuestoDeDetalle(cd.getValue())));
@@ -126,7 +136,26 @@ public class TablaDetallesViewController {
                             new javafx.beans.property.SimpleStringProperty(asMoneyString(valueByMethods(cd.getValue(), "getSubtotal", "calcularSubtotal"))));
 
                     fxTablaDetalleRepuestos.getColumns().addAll(colRep, colCant, colPrecio, colSub);
+                } else if (cols.size() >= 4) {
+                    @SuppressWarnings("unchecked")
+                    javafx.scene.control.TableColumn<DetalleRepuesto, String> colRep = (javafx.scene.control.TableColumn<DetalleRepuesto, String>) cols.get(0);
+                    @SuppressWarnings("unchecked")
+                    javafx.scene.control.TableColumn<DetalleRepuesto, String> colCant = (javafx.scene.control.TableColumn<DetalleRepuesto, String>) cols.get(1);
+                    @SuppressWarnings("unchecked")
+                    javafx.scene.control.TableColumn<DetalleRepuesto, String> colPrecio = (javafx.scene.control.TableColumn<DetalleRepuesto, String>) cols.get(2);
+                    @SuppressWarnings("unchecked")
+                    javafx.scene.control.TableColumn<DetalleRepuesto, String> colSub = (javafx.scene.control.TableColumn<DetalleRepuesto, String>) cols.get(3);
+
+                    colRep.setCellValueFactory(cd ->
+                            new javafx.beans.property.SimpleStringProperty(nombreRepuestoDeDetalle(cd.getValue())));
+                    colCant.setCellValueFactory(cd ->
+                            new javafx.beans.property.SimpleStringProperty(asIntString(valueByMethods(cd.getValue(), "getCantidad"))));
+                    colPrecio.setCellValueFactory(cd ->
+                            new javafx.beans.property.SimpleStringProperty(asMoneyString(valueByMethods(cd.getValue(), "getPrecioUnitario", "getPrecioU", "getPrecio"))));
+                    colSub.setCellValueFactory(cd ->
+                            new javafx.beans.property.SimpleStringProperty(asMoneyString(valueByMethods(cd.getValue(), "getSubtotal", "calcularSubtotal"))));
                 }
+
                 // Enlazar la tabla a la lista global para persistir entre escenas
                 fxTablaDetalleRepuestos.setItems(javafx.collections.FXCollections.observableList(App.detallesServicioActual));
             }
@@ -157,9 +186,21 @@ public class TablaDetallesViewController {
     private String nombreRepuestoDeDetalle(DetalleRepuesto detalle) {
         if (detalle == null) return "";
         try {
-            java.lang.reflect.Method m = detalle.getClass().getMethod("getRepuesto");
-            Object repuesto = m.invoke(detalle);
-            return repuesto instanceof Repuesto ? getNombreRepuesto((Repuesto) repuesto) : (repuesto != null ? repuesto.toString() : "");
+            Object repuesto = null;
+            String[] getters = new String[] { "getOwnedByRepuesto", "getRepuesto" };
+            for (String g : getters) {
+                try {
+                    java.lang.reflect.Method m = detalle.getClass().getMethod(g);
+                    repuesto = m.invoke(detalle);
+                    if (repuesto != null) break;
+                } catch (NoSuchMethodException ignored) {
+                    // probar siguiente
+                }
+            }
+            if (repuesto instanceof Repuesto) {
+                return getNombreRepuesto((Repuesto) repuesto);
+            }
+            return repuesto != null ? repuesto.toString() : "";
         } catch (Exception e) {
             return "";
         }
@@ -204,10 +245,4 @@ public class TablaDetallesViewController {
         }
         return String.format("%.2f", d);
     }
-
-    @FXML
-    void calcularSumaSubtotal(){
-
-    }
-
 }
