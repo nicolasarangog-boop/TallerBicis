@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/historialServicioBicicleta.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/historialServicioBicicleta.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewcontroller.ConsultaOrdenProgramadaViewController">
     <children>
         <Text layoutX="81.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ORDEN PROGRAMADA" wrappingWidth="404.776611328125">
             <font>
@@ -16,12 +16,12 @@
             </font>
         </Text>
         <TextField fx:id="fxIngresarNoSerial" layoutX="145.0" layoutY="169.0" prefHeight="36.0" prefWidth="210.0" promptText="Ingrese Fecha de la orden " styleClass="label" />
-        <Button fx:id="fxBotonConsultar" layoutX="153.0" layoutY="227.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" styleClass="btn-primary" text="CONSULTAR ORDEN">
+        <Button fx:id="fxBotonConsultar" layoutX="153.0" layoutY="227.0" mnemonicParsing="false" onAction="#consultarServicios" prefHeight="42.0" prefWidth="194.0" styleClass="btn-primary" text="CONSULTAR ORDEN">
             <font>
                 <Font name="System Bold" size="10.0" />
             </font>
         </Button>
-        <Button fx:id="fxBotonAtras" layoutX="215.0" layoutY="287.0" mnemonicParsing="false" text="Ir atrás" />
+        <Button fx:id="fxBotonAtras" layoutX="215.0" layoutY="287.0" mnemonicParsing="false" onAction="#cambioHaciaInicio" text="Ir atrás" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/ordenProgramada.png" />

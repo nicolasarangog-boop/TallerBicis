@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@css/cliente.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@css/cliente.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewcontroller.RegistroClienteViewController">
    <children>
       <Label layoutX="197.0" layoutY="32.0" text="Registro Cliente" />
       <TextField fx:id="fxNombre" layoutX="40.0" layoutY="112.0" prefHeight="22.0" prefWidth="414.0" promptText="Ingrese nombre completo del cliente" stylesheets="@css/persona.css" />
@@ -18,8 +18,8 @@
       <TextField fx:id="fxTelefono" layoutX="40.0" layoutY="257.0" prefHeight="30.0" prefWidth="414.0" promptText="Ingrese teléfono del cliente" stylesheets="@css/persona.css" />
       <Label layoutX="40.0" layoutY="298.0" text="Dirección:" />
       <TextField fx:id="fxDireccion" layoutX="40.0" layoutY="331.0" prefHeight="22.0" prefWidth="414.0" promptText="Ingrese dirección del cliente" stylesheets="@css/persona.css" />
-      <Button fx:id="fxBotonRegistrar" layoutX="175.0" layoutY="389.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="137.0" stylesheets="@css/persona.css" text="Registrar" />
-      <Button fx:id="btnAtras" layoutX="197.0" layoutY="450.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="91.0" stylesheets="@css/persona.css" text="Ir atrás" />
+      <Button fx:id="fxBotonRegistrar" layoutX="175.0" layoutY="389.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="46.0" prefWidth="137.0" stylesheets="@css/persona.css" text="Registrar" />
+      <Button fx:id="btnAtras" layoutX="197.0" layoutY="450.0" mnemonicParsing="false" onAction="#cambioHaciaInicio" prefHeight="36.0" prefWidth="91.0" stylesheets="@css/persona.css" text="Ir atrás" />
       <ImageView fitHeight="120.0" fitWidth="109.0" layoutX="391.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@css/registroPersona.png" />

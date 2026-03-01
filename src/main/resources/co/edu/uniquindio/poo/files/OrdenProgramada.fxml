@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="716.0" stylesheets="@css/tablaOrdenProgramada.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="716.0" stylesheets="@css/tablaOrdenProgramada.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.controller.OrdenProgramadaController">
     <Label layoutX="262.0" layoutY="24.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Orden Programada" />
     <TableView fx:id="fxTablaHistorialBicis" layoutX="18.0" layoutY="73.0" prefHeight="354.0" prefWidth="679.0">
         <columns>

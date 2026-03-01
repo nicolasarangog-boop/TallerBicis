@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/historialServicioBicicleta.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" stylesheets="@css/historialServicioBicicleta.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.viewcontroller.HistorialServiciosBicicletaViewController">
    <children>
       <ImageView fitHeight="238.0" fitWidth="450.0" layoutX="170.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,6 +35,6 @@
             <Font name="System Bold" size="10.0" />
          </font>
       </Button>
-      <Button fx:id="fxBotonAtras" layoutX="205.0" layoutY="286.0" mnemonicParsing="false" text="Ir atrás" />
+      <Button fx:id="fxBotonAtras" layoutX="205.0" layoutY="286.0" mnemonicParsing="false" onAction="#cambioHaciaInicio" text="Ir atrás" />
    </children>
 </Pane>

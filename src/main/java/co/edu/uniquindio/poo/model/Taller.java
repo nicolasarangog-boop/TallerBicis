@@ -191,7 +191,7 @@ public class Taller {
      * Metodo para buscar personas en el taller
      */
     public Optional buscarPersona(String id) {
-        return listaPersonas.stream().filter(Persona -> Persona.getId() == id).findFirst();
+        return listaPersonas.stream().filter(Persona -> Persona.getId().equals(id)).findFirst();
     }
 
     /**
@@ -245,7 +245,7 @@ public class Taller {
      * Metodo para buscar bicicletas en el taller
      */
     public Optional buscarBicicleta(String noSerial) {
-        return listaBicicletas.stream().filter(Bicicleta -> Bicicleta.getNoSerial() == noSerial).findFirst();
+        return listaBicicletas.stream().filter(Bicicleta -> Bicicleta.getNoSerial().equals(noSerial)).findFirst();
     }
 
     /**
@@ -300,7 +300,7 @@ public class Taller {
      * Metodo para buscar servicios en el taller
      */
     public Optional buscarServicio(String codigo) {
-        return listaServicios.stream().filter(Servicio -> Servicio.getCodigo() == codigo).findFirst();
+        return listaServicios.stream().filter(Servicio -> Servicio.getCodigo().equals(codigo)).findFirst();
     }
 
     /**
@@ -356,7 +356,7 @@ public class Taller {
      * Metodo para buscar repuesto en el taller
      */
     public Optional buscarRepuesto(String codigo) {
-        return listaRepuestos.stream().filter(Repuesto -> Repuesto.getCodigo() == codigo).findFirst();
+        return listaRepuestos.stream().filter(Repuesto -> Repuesto.getCodigo().equals(codigo)).findFirst();
     }
 
     /**
