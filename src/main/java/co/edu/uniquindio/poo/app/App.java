@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.List;
+import co.edu.uniquindio.poo.model.DetalleRepuesto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class App extends Application {
 
@@ -21,6 +24,8 @@ public class App extends Application {
     public static List<Servicio> resultadosHistorialBici = new LinkedList<>();
     // Contenedor de resultados para la tabla de orden programada
     public static List<Servicio> resultadosOrdenProgramada = new LinkedList<>();
+    // Detalles (repuestos) del servicio en curso, compartidos entre vistas
+    public static ObservableList<DetalleRepuesto> detallesServicioActual = FXCollections.observableArrayList();
     private Stage stageWindow;
 
     public static void main(String[] args) {
